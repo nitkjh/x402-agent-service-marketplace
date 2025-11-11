@@ -2,7 +2,7 @@
 
 An open-source Agent Service Marketplace built on Solana devnet with x402 HTTP-native payment integration. This project enables service providers to register paid API endpoints and allows agents/clients to discover and use these services with automatic micropayments.
 
-## 🚀 Features
+## Features
 
 - **On-Chain Service Registry**: Register service endpoints on Solana with metadata (URL, price, description)
 - **Trust Metrics**: Track success/failure counts for each service on-chain
@@ -11,14 +11,14 @@ An open-source Agent Service Marketplace built on Solana devnet with x402 HTTP-n
 - **Web UI**: Simple frontend to browse, register, and use services
 - **Solana Devnet**: Fully deployed and tested on Solana devnet
 
-## 📋 Requirements
+## Requirements
 
 - Node.js 18+
 - Rust & Anchor (v0.30.1)
 - Solana CLI tools
 - A Solana wallet with devnet SOL
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 .
@@ -36,7 +36,7 @@ An open-source Agent Service Marketplace built on Solana devnet with x402 HTTP-n
 └── README.md
 ```
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### 1. Install Dependencies
 
@@ -105,7 +105,7 @@ npm run dev
 
 The frontend will run on `http://localhost:3000`
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Register Service
 ```bash
@@ -144,7 +144,7 @@ Content-Type: application/json
 }
 ```
 
-## 🔄 x402 Payment Flow
+## x402 Payment Flow
 
 1. **Client Request**: Client selects a service and makes a request
 2. **402 Response**: Service returns HTTP 402 Payment Required
@@ -154,7 +154,7 @@ Content-Type: application/json
 6. **Service Response**: Service validates payment and returns data
 7. **Trust Update**: Backend updates on-chain trust metrics
 
-## 🎯 Usage Example
+## Usage Example
 
 ### 1. Register a Service
 
@@ -180,7 +180,7 @@ Content-Type: application/json
    - Show service response
    - Update trust metrics
 
-## 🧪 Testing
+## Testing
 
 ### Test with a Mock x402 Service
 
@@ -205,14 +205,14 @@ app.listen(4021);
 
 Register this as a service and test the full flow.
 
-## 🔐 Security Notes
+## Security Notes
 
 - **Private Keys**: Never commit private keys to version control
 - **Authority Key**: The authority key should be kept secure as it can update trust metrics
 - **Production**: For production, implement proper authentication and authorization
 - **USDC Mint**: Update the USDC mint address for your network (devnet/mainnet)
 
-## 📝 Program Instructions
+## Program Instructions
 
 ### `register_service`
 Registers a new service endpoint on-chain.
@@ -238,45 +238,22 @@ Updates success/failure counts for a service.
 **Args:**
 - `success`: Boolean indicating if service call succeeded
 
-## 🎥 Demo Video Flow
-
-1. **Register Endpoint** (30s)
-   - Show registration form
-   - Submit transaction
-   - Show transaction confirmation
-
-2. **Agent Uses Service** (60s)
-   - Browse available services
-   - Select a service
-   - Generate client keypair
-   - Initiate service call
-
-3. **Payment Runs** (60s)
-   - Show 402 response handling
-   - Display payment transaction
-   - Show payment confirmation on Solscan
-
-4. **Trust Metric Updates** (30s)
-   - Show updated success count
-   - Verify on-chain update
-   - Show transaction hash
-
-## 🤝 Contributing
+## Contributing
 
 This is an open-source hackathon project. Contributions welcome!
 
-## 📄 License
+## License
 
-MIT License - See LICENSE file
+MIT License
 
-## 🔗 Resources
+## Resources
 
 - [x402 Documentation](https://solana.com/x402/what-is-x402)
 - [Corbits Quickstart](https://docs.corbits.dev/quickstart)
 - [x402 Integration Guide](https://solana.com/developers/guides/getstarted/build-a-x402-facilitator)
 - [Solana Documentation](https://docs.solana.com/)
 
-## ⚠️ Known Limitations
+## Known Limitations
 
 - MVP implementation - not production-ready
 - Trust metrics can be updated by any authority (should be restricted in production)
@@ -285,7 +262,7 @@ MIT License - See LICENSE file
   - Mainnet: Use official USDC mint: `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v`
 - No authentication/authorization on API endpoints (add for production)
 
-## 🧪 Test Service
+## Test Service
 
 A simple test x402 service is included in `examples/test-x402-service.js`:
 
@@ -295,7 +272,7 @@ node examples/test-x402-service.js
 
 Register `http://localhost:4021/test` as a service to test the full payment flow.
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Program deployment fails:**
 - Ensure you have devnet SOL: `solana airdrop 2`
@@ -313,6 +290,3 @@ Register `http://localhost:4021/test` as a service to test the full payment flow
 - Ensure USDC mint address is correct for network
 
 ---
-
-Built for Solana x402 Hackathon 🚀
-
