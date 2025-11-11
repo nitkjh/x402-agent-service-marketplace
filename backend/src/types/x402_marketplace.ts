@@ -1,6 +1,14 @@
-export interface X402Marketplace {
+import { Idl } from '@coral-xyz/anchor';
+
+export interface X402Marketplace extends Idl {
   "version": "0.1.0",
   "name": "x402_marketplace",
+  "address": string;
+  "metadata": {
+    "name": string;
+    "version": string;
+    "spec": string;
+  };
   "instructions": [
     {
       "name": "registerService",

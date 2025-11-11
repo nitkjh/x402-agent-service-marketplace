@@ -1,6 +1,12 @@
 {
   "version": "0.1.0",
   "name": "x402_marketplace",
+  "address": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS",
+  "metadata": {
+    "name": "x402_marketplace",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
   "instructions": [
     {
       "name": "registerService",

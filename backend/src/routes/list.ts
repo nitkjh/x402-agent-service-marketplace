@@ -10,9 +10,9 @@ export async function listEndpoints(req: Request, res: Response) {
     const program = getProgram(connection);
     
     // Fetch all service accounts
-    const services = await program.account.service.all();
+    const services = await (program.account as any).service.all();
     
-    const endpoints = services.map((service) => ({
+    const endpoints = services.map((service: any) => ({
       serviceId: service.account.serviceId,
       owner: service.account.owner.toString(),
       url: service.account.url,

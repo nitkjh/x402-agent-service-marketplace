@@ -18,7 +18,7 @@ app.post('/api/register', registerEndpoint);
 app.get('/api/list', listEndpoints);
 app.post('/api/use', useService);
 
-app.get('/health', (req, res) => {
+app.get('/health', (req: express.Request, res: express.Response) => {
   res.json({ status: 'ok' });
 });
 

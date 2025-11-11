@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Connection, Keypair } from '@solana/web3.js';
+import { Connection, Keypair, Transaction } from '@solana/web3.js';
 import { getProgram, getServicePDA } from '../solana/program';
 import { wrap } from '@faremeter/fetch';
 import { createPaymentHandler } from '@faremeter/payment-solana-exact';
@@ -22,10 +22,10 @@ export async function useService(req: Request, res: Response) {
     }
 
     const program = getProgram(connection);
-    const [servicePDA] = await getServicePDA(serviceId);
+    const [servicePDA] = getServicePDA(serviceId);
 
     // Fetch service details
-    const service = await program.account.service.fetch(servicePDA);
+    const service = await (program.account as any).service.fetch(servicePDA);
     const serviceUrl = service.url as string;
     const priceUsdc = service.priceUsdc as anchor.BN;
 
@@ -37,12 +37,12 @@ export async function useService(req: Request, res: Response) {
     const paymentHandler = createPaymentHandler(
       {
         publicKey: clientWallet.publicKey,
-        signTransaction: async (tx) => {
+        signTransaction: async (tx: Transaction): Promise<Transaction> => {
           tx.sign(clientWallet);
           return tx;
         },
-        signAllTransactions: async (txs) => {
-          txs.forEach(tx => tx.sign(clientWallet));
+        signAllTransactions: async (txs: Transaction[]): Promise<Transaction[]> => {
+          txs.forEach((tx: Transaction) => tx.sign(clientWallet));
           return txs;
         },
       } as any,
@@ -51,7 +51,7 @@ export async function useService(req: Request, res: Response) {
     );
 
     // Wrap fetch with x402 payment
-    const fetchWithPayment = wrap(fetch, {
+    const fetchWithPayment = wrap(globalThis.fetch as typeof fetch, {
       handlers: [paymentHandler],
     });
 

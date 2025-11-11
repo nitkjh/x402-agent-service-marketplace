@@ -23,11 +23,11 @@ export async function registerEndpoint(req: Request, res: Response) {
     }
 
     const program = getProgram(connection, owner);
-    const [servicePDA] = await getServicePDA(serviceId);
+    const [servicePDA] = getServicePDA(serviceId);
 
     // Check if service already exists
     try {
-      await program.account.service.fetch(servicePDA);
+      await (program.account as any).service.fetch(servicePDA);
       return res.status(400).json({ error: 'Service already registered' });
     } catch (e) {
       // Service doesn't exist, proceed with registration
