@@ -68,3 +68,7 @@ $RECYCLE.BIN/
 *.backup
 *~
 
+# Presentation materials (keep local only)
+PRESENTATION*.md
+PRESENTATION*.html
+
