@@ -29,7 +29,9 @@ export function getProgram(connection: Connection, wallet?: Keypair): Program<Id
   );
   anchor.setProvider(provider);
   // Use 'as any' to bypass strict IDL type checking - the JSON IDL is validated at runtime
-  return new Program(idl as any, PROGRAM_ID, provider);
+  // Explicitly cast the Program constructor call to avoid TypeScript parameter order confusion
+  const ProgramConstructor = Program as any;
+  return new ProgramConstructor(idl, PROGRAM_ID, provider) as Program<Idl>;
 }
 
 export function getServicePDA(serviceId: string): [PublicKey, number] {
