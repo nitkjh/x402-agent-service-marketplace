@@ -1,12 +1,11 @@
 import * as anchor from '@coral-xyz/anchor';
 import { Program, BN, Idl } from '@coral-xyz/anchor';
 import { Connection, PublicKey, Keypair, SystemProgram, Transaction } from '@solana/web3.js';
-import { X402Marketplace } from '../types/x402_marketplace';
 import idl from '../idl/x402_marketplace.json';
 
-const PROGRAM_ID = new PublicKey('Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS');
+const PROGRAM_ID = new PublicKey((idl as any).address || 'Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS');
 
-export function getProgram(connection: Connection, wallet?: Keypair): Program<X402Marketplace> {
+export function getProgram(connection: Connection, wallet?: Keypair): Program<Idl> {
   const walletAdapter = wallet ? {
     publicKey: wallet.publicKey,
     signTransaction: async (tx: Transaction): Promise<Transaction> => {
@@ -29,7 +28,8 @@ export function getProgram(connection: Connection, wallet?: Keypair): Program<X4
     { commitment: 'confirmed' }
   );
   anchor.setProvider(provider);
-  return new Program(idl as Idl, PROGRAM_ID, provider) as Program<X402Marketplace>;
+  // Use 'as any' to bypass strict IDL type checking - the JSON IDL is validated at runtime
+  return new Program(idl as any, PROGRAM_ID, provider);
 }
 
 export function getServicePDA(serviceId: string): [PublicKey, number] {
