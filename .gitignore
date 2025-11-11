@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+target/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Solana
+test-ledger/
+*.json
+!package.json
+!tsconfig.json
+!tsconfig.node.json
+!Anchor.toml
+!Cargo.toml
+!Xargo.toml
+!backend/src/idl/x402_marketplace.json
+authority.json
+id.json
+
+# IDL (will be generated)
+target/idl/
+target/types/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Anchor
+.anchor/
+
+# Personal/Sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+*secret*
+*private*
+credentials.json
+config.json
+secrets.json
+
+# Windows specific
+desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+

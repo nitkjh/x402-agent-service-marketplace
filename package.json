@@ -1,0 +1,22 @@
+{
+  "name": "x402-agent-service-marketplace",
+  "version": "1.0.0",
+  "description": "Agent Service Marketplace & Router on Solana with x402 payments",
+  "scripts": {
+    "build:program": "cd programs/x402-marketplace && anchor build",
+    "deploy:devnet": "anchor deploy --provider.cluster devnet",
+    "test": "anchor test"
+  },
+  "keywords": [
+    "solana",
+    "x402",
+    "anchor",
+    "blockchain",
+    "payments",
+    "api",
+    "marketplace"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

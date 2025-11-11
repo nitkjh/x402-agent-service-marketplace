@@ -1,0 +1,24 @@
+{
+  "name": "x402-marketplace-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Agent Service Marketplace & Router",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1"
+  }
+}
+

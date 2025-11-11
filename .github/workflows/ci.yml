@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+      - name: Check backend types
+        run: |
+          cd backend
+          npm run build
+      - name: Check frontend types
+        run: |
+          cd frontend
+          npm run build
+

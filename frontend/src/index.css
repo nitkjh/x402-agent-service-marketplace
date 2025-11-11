@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #555;
+  margin: 20px 0 10px 0;
+}
+
+button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #5568d3;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.service-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  transition: box-shadow 0.2s;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-card.selected {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.metrics {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.success {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.failure {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.result-box {
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 15px;
+  font-family: monospace;
+  font-size: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.loading {
+  color: #667eea;
+  font-style: italic;
+}
+
+.error {
+  color: #ef4444;
+  background: #fee;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: #10b981;
+  background: #f0fdf4;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.tx-link {
+  color: #667eea;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.tx-link:hover {
+  text-decoration: underline;
+}
+
